@@ -154,6 +154,8 @@ trait EvaluatorService extends HttpService with HttpsDirectives with CORSSupport
               }
             }
           }
+        } ~ pathPrefix(".well-known") {
+          getFromDirectory("challenge/.well-known")
         } ~ pathPrefix("agentui") {
           getFromDirectory("agentui")
         } ~ (pathSingleSlash | path("index.html")) {
